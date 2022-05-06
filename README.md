@@ -11,5 +11,6 @@
 ### запуск приложения
     mvn clean install
 Выполнить команду для запуска jar файла
+
     java -jar parcing_app-0.0.1-SNAPSHOT.jar orderJson.json orderCsv.csv
           
