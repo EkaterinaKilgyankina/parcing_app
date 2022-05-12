@@ -1,5 +1,6 @@
 package com.bank.parcing_app.service;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutorService;
@@ -11,5 +12,16 @@ public class ExecutionService {
 
     public void submit(Runnable runnable) {
         pool.submit(runnable);
+    }
+
+    public void shutdown() {
+        pool.shutdown();
+    }
+
+    @Scheduled(fixedRate = 500L)
+    public void isShutDown() {
+        if (pool.isShutdown()) {
+            System.exit(0);
+        }
     }
 }
